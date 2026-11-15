@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#172554">
+  <meta name="description" content="CyberKindness promotes kindness, respect, and responsible communication online while helping students understand and prevent cyberbullying.">
+  <title>CyberKindness | Think Before You Type</title>
+  <style>
+    :root {
+      --navy:#172554; --blue:#2563eb; --sky:#dbeafe; --teal:#0f766e;
+      --ink:#172033; --muted:#5b6477; --paper:#f7f9ff; --white:#fff;
+      --line:#e5eaf4; --pink:#fce7f3; --lav:#ede9fe; --shadow:0 18px 50px rgba(23,37,84,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.65}
+    a{color:inherit}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{max-width:1160px;margin:auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:850;color:var(--navy);letter-spacing:-.4px;font-size:1.15rem}
+    .brand-mark{width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,#2563eb,#7c3aed);display:grid;place-items:center;color:white;font-size:20px;box-shadow:0 7px 18px #2563eb38}
+    .links{display:flex;align-items:center;gap:22px}
+    .links a{text-decoration:none;font-size:.91rem;font-weight:650;color:#46516a}
+    .links a:hover,.links a:focus{color:var(--blue)}
+    .menu-btn{display:none;border:1px solid var(--line);background:white;border-radius:10px;padding:8px 12px;font-size:1.2rem}
+    .hero{overflow:hidden;position:relative;background:radial-gradient(circle at 85% 15%,#8b5cf633,transparent 26%),linear-gradient(135deg,#101d49 0%,#1d3d83 55%,#315ec1 100%);color:white}
+    .hero-inner{max-width:1160px;margin:auto;padding:88px 24px 92px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:50px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border:1px solid #ffffff42;background:#ffffff12;border-radius:99px;font-size:.82rem;font-weight:750;letter-spacing:.5px}
+    h1{font-size:clamp(2.7rem,6vw,5rem);line-height:1.04;letter-spacing:-2.8px;margin:22px 0 18px}
+    h1 span{color:#bfdbfe}
+    .hero p{max-width:620px;color:#e1eaff;font-size:1.1rem}
+    .slogan{font-size:1.05rem!important;font-weight:800;color:white!important;margin:25px 0}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .btn{display:inline-flex;justify-content:center;align-items:center;padding:12px 19px;border-radius:13px;text-decoration:none;font-weight:800;border:1px solid transparent;transition:.2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-light{background:white;color:var(--navy)}
+    .btn-outline{border-color:#ffffff75;color:white;background:#ffffff0d}
+    .hero-art{min-height:340px;display:grid;place-items:center;position:relative}
+    .bubble{position:absolute;border-radius:50%;background:#ffffff12;border:1px solid #ffffff28}
+    .bubble.one{width:290px;height:290px}.bubble.two{width:355px;height:355px}
+    .phone{position:relative;width:235px;padding:13px;border-radius:31px;background:#f8fbff;box-shadow:0 28px 65px #07133188;transform:rotate(5deg)}
+    .phone-screen{border-radius:22px;background:linear-gradient(160deg,#e0edff,#f5eaff);padding:22px 16px 18px;color:var(--navy);text-align:center}
+    .phone-notch{width:65px;height:7px;border-radius:10px;background:#cbd5e1;margin:0 auto 20px}
+    .heart{font-size:55px;line-height:1.2}
+    .phone-screen strong{display:block;font-size:1.08rem;margin:8px 0}
+    .message{background:white;border-radius:13px;padding:9px;margin:9px 0;font-size:.78rem;text-align:left;box-shadow:0 4px 12px #243b6810}
+    .message b{color:#2563eb}
+    .float{position:absolute;background:white;color:var(--navy);border-radius:15px;padding:11px 14px;font-weight:800;box-shadow:var(--shadow)}
+    .float.a{top:42px;right:0}.float.b{bottom:35px;left:0}
+    .section{max-width:1100px;margin:auto;padding:76px 24px}
+    .section-head{text-align:center;max-width:720px;margin:0 auto 38px}
+    .kicker{color:var(--blue);font-size:.78rem;font-weight:850;letter-spacing:1.7px;text-transform:uppercase}
+    h2{font-size:clamp(2rem,4vw,2.8rem);line-height:1.15;letter-spacing:-1.2px;color:var(--navy);margin:9px 0 13px}
+    .section-head p,.muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:white;border:1px solid var(--line);border-radius:20px;padding:25px;box-shadow:0 7px 25px #17255408}
+    .card h3{color:var(--navy);margin:10px 0 7px;font-size:1.13rem}
+    .card p{color:var(--muted);margin:0}
+    .icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;font-size:23px;background:var(--sky)}
+    .pink{background:var(--pink)}.lav{background:var(--lav)}.mint{background:#ccfbf1}.yellow{background:#fef3c7}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+    .statement{background:linear-gradient(145deg,#eff6ff,#f5f3ff);border:1px solid #dbeafe;border-radius:22px;padding:30px}
+    .statement h3{color:var(--navy);font-size:1.35rem;margin:0 0 9px}
+    .statement p{color:#4d5a73;margin:0}
+    .issue{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px}
+    .issue p{color:var(--muted)}
+    .pill-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+    .pill{padding:7px 11px;border-radius:99px;background:#eff6ff;color:#1d4ed8;font-size:.82rem;font-weight:750}
+    .forms{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .form-card{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;gap:15px}
+    .form-card .icon{flex:0 0 48px}
+    .form-card h3{margin:0 0 5px;color:var(--navy);font-size:1.05rem}
+    .form-card p{margin:0;color:var(--muted);font-size:.95rem}
+    .steps{counter-reset:step;display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .step{background:white;border:1px solid var(--line);border-radius:18px;padding:23px}
+    .step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:var(--navy);color:white;font-weight:850;margin-bottom:14px}
+    .step h3{margin:0 0 6px;color:var(--navy)}.step p{margin:0;color:var(--muted)}
+    .help-panel{background:linear-gradient(135deg,#172554,#244a9b);color:white;border-radius:25px;padding:38px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:25px}
+    .help-panel h2{color:white;margin-top:0}.help-panel p{color:#dbeafe;max-width:690px}
+    .help-panel .btn{background:white;color:var(--navy);white-space:nowrap}
+    .callout{border-left:4px solid #60a5fa;background:#eff6ff;padding:16px 18px;border-radius:0 12px 12px 0;color:#334155;margin-top:18px}
+    footer{background:#101a3c;color:#dbeafe;padding:35px 24px}
+    .footer-inner{max-width:1100px;margin:auto;display:flex;justify-content:space-between;gap:25px;align-items:center}
+    footer p{margin:5px 0;color:#b8c6e7;font-size:.9rem}
+    .top-link{color:white;text-decoration:none;font-weight:750}
+    @media(max-width:850px){.hero-inner{grid-template-columns:1fr;text-align:center;padding-top:65px}.hero p{margin-left:auto;margin-right:auto}.actions{justify-content:center}.hero-art{min-height:330px}.grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.links{gap:12px}.links a{font-size:.82rem}}
+    @media(max-width:620px){.nav{padding:12px 17px}.menu-btn{display:block}.links{display:none;position:absolute;left:0;right:0;top:65px;background:white;padding:16px 22px 20px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.links.open{display:flex}.links a{font-size:.95rem}.hero-inner{padding:55px 20px 65px}h1{letter-spacing:-1.7px}.hero-art{min-height:300px}.bubble.one{width:235px;height:235px}.bubble.two{width:290px;height:290px}.phone{width:205px}.float.a{right:-4px}.float.b{left:-3px}.section{padding:58px 19px}.grid,.split,.forms{grid-template-columns:1fr}.help-panel{grid-template-columns:1fr;padding:28px 23px}.help-panel .btn{justify-self:start}.footer-inner{align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#home"><span class="brand-mark">♡</span> CyberKindness</a>
+    <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false" id="menuBtn">☰</button>
+    <div class="links" id="navLinks">
+      <a href="#home">Home</a><a href="#about">About Us</a><a href="#awareness">Awareness</a><a href="#prevention">Prevention Tips</a><a href="#help">Get Help</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow">💙 A safer, kinder digital community</span>
+        <h1>Kindness is always <span>in style.</span></h1>
+        <p>Welcome to CyberKindness! This website is dedicated to promoting kindness, respect, and responsible communication online. Here, you can learn about cyberbullying, its effects, and ways to prevent it. Together, let us make the internet a safer and more positive place for everyone.</p>
+        <p class="slogan">“Think Before You Type, Choose Kindness Every Time.”</p>
+        <div class="actions"><a class="btn btn-light" href="#awareness">Learn about cyberbullying</a><a class="btn btn-outline" href="#prevention">Explore prevention tips</a></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a phone displaying positive online messages">
+        <div class="bubble one"></div><div class="bubble two"></div>
+        <div class="phone"><div class="phone-screen"><div class="phone-notch"></div><div class="heart">💙</div><strong>Choose kindness!</strong><div class="message">✨ <b>You matter.</b> Keep being you.</div><div class="message">🌈 Let's make the internet a kinder place.</div><div class="message">🤝 Respect others online.</div></div></div>
+        <div class="float a">💬 Be respectful</div><div class="float b">🛡️ Stay safe online</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-head"><span class="kicker">Who we are</span><h2>A little kindness can make a big difference.</h2><p>CyberKindness is an advocacy that encourages everyone to use digital spaces with care, respect, and responsibility.</p></div>
+    <div class="split">
+      <article class="statement"><div class="icon">🎯</div><h3>Our Mission</h3><p>Our mission is to educate students and internet users about cyberbullying and encourage responsible online behavior. We aim to promote respect, kindness, and awareness through the use of digital technology.</p></article>
+      <article class="statement"><div class="icon lav">🌟</div><h3>Our Vision</h3><p>We envision an online community where everyone feels respected, accepted, and safe. We hope to build a generation of responsible digital citizens who use technology to spread kindness rather than hate.</p></article>
+    </div>
+    <div style="margin-top:22px" class="issue"><h3 style="color:var(--navy);margin-top:0">Our Advocacy Objectives</h3><div class="grid">
+      <div><b>01 · Raise awareness</b><p class="muted">Help people understand cyberbullying and its negative effects.</p></div>
+      <div><b>02 · Encourage respect</b><p class="muted">Promote kindness and respectful communication online.</p></div>
+      <div><b>03 · Use social media responsibly</b><p class="muted">Help students make thoughtful choices and prevent harmful online behavior.</p></div>
+    </div></div>
+  </section>
+
+  <section class="section" id="awareness" style="background:#eef3ff;max-width:none">
+    <div style="max-width:1100px;margin:auto">
+      <div class="section-head"><span class="kicker">Know the issue</span><h2>What is cyberbullying?</h2><p>Cyberbullying is bullying that happens through digital devices and online platforms. It can involve repeated hurtful behavior that makes another person feel targeted, threatened, or humiliated.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon pink">💬</div><h3>Hurtful messages</h3><p>Sending insulting, threatening, or humiliating messages through chats or social media.</p></article>
+        <article class="card"><div class="icon lav">📢</div><h3>Spreading rumors</h3><p>Sharing false or harmful stories about someone online.</p></article>
+        <article class="card"><div class="icon yellow">📸</div><h3>Sharing without consent</h3><p>Posting or forwarding someone's private photos, messages, or information without permission.</p></article>
+        <article class="card"><div class="icon mint">🚫</div><h3>Online exclusion</h3><p>Deliberately leaving someone out of online groups or activities to embarrass or isolate them.</p></article>
+        <article class="card"><div class="icon">🎭</div><h3>Impersonation</h3><p>Pretending to be another person online to damage their reputation or cause trouble.</p></article>
+        <article class="card"><div class="icon pink">🔁</div><h3>Repeated harassment</h3><p>Continuously targeting a person through comments, posts, or messages.</p></article>
+      </div>
+      <div class="callout"><b>Why does it matter?</b> Cyberbullying can affect a person's confidence, emotional well-being, friendships, and sense of safety. Online actions can have real-life effects.</div>
+    </div>
+  </section>
+
+  <section class="section" id="prevention">
+    <div class="section-head"><span class="kicker">Make a positive impact</span><h2>Small actions. Safer online spaces.</h2><p>Everyone can help prevent cyberbullying by making thoughtful choices and treating others with respect.</p></div>
+    <div class="forms">
+      <article class="form-card"><div class="icon">🧠</div><div><h3>Think before you post</h3><p>Pause before commenting or sharing. Ask yourself whether your words are respectful and helpful.</p></div></article>
+      <article class="form-card"><div class="icon lav">🤝</div><div><h3>Show respect</h3><p>Remember that there is a real person behind every screen. Be considerate, even when you disagree.</p></div></article>
+      <article class="form-card"><div class="icon mint">🔒</div><div><h3>Protect your privacy</h3><p>Use privacy settings and avoid sharing passwords or personal information with strangers.</p></div></article>
+      <article class="form-card"><div class="icon yellow">📣</div><div><h3>Speak up safely</h3><p>Do not join in or forward harmful content. Support the person being targeted in a safe and respectful way.</p></div></article>
+      <article class="form-card"><div class="icon pink">🚩</div><div><h3>Report and block</h3><p>Use the platform's reporting and blocking tools when an account or message is abusive.</p></div></article>
+      <article class="form-card"><div class="icon">🧑‍🏫</div><div><h3>Ask for help</h3><p>Talk to a trusted adult, teacher, school counselor, or another appropriate support person.</p></div></article>
+    </div>
+    <div style="margin-top:42px" class="section-head"><span class="kicker">Our proposed actions</span><h2>How CyberKindness spreads awareness</h2></div>
+    <div class="steps">
+      <article class="step"><h3>Share learning materials</h3><p>Create and share educational posters, videos, and information about cyberbullying and its effects.</p></article>
+      <article class="step"><h3>Promote thoughtful posting</h3><p>Encourage students to think before posting, commenting, or sharing information online.</p></article>
+      <article class="step"><h3>Connect people to support</h3><p>Promote reporting harmful online behavior, blocking abusive accounts, and seeking help from trusted adults or appropriate authorities.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="help" style="padding-top:20px">
+    <div class="help-panel">
+      <div><span class="kicker" style="color:#bfdbfe">You are not alone</span><h2>Get help. Take a safe next step.</h2><p>If you experience or witness cyberbullying, consider saving relevant evidence, using the platform's report and block features, and telling a trusted adult or school support person. If someone may be in immediate danger, contact local emergency services or an appropriate authority.</p><p><b>Remember:</b> You do not have to handle online harassment by yourself.</p></div>
+      <a class="btn" href="#commitment">Make a commitment ↓</a>
+    </div>
+    <div class="split" style="margin-top:22px">
+      <article class="card"><div class="icon">🧾</div><h3>When reporting online</h3><p>Use the safety or reporting options provided by the platform. Follow its instructions and avoid replying to or sharing harmful content.</p></article>
+      <article class="card"><div class="icon lav">💙</div><h3>When supporting someone</h3><p>Listen without judging, let them know they deserve respect, and help them reach a trusted adult or school support person.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="commitment" style="padding-top:15px">
+    <div class="section-head"><span class="kicker">Take the pledge</span><h2>Choose kindness every time.</h2><p>Make a personal commitment to help create a more respectful digital community.</p></div>
+    <div class="card" style="max-width:760px;margin:auto;text-align:center">
+      <div class="heart" aria-hidden="true">💙</div>
+      <h3 style="font-size:1.35rem">My CyberKindness Commitment</h3>
+      <p class="muted">I will think before I type, respect others online, protect my privacy, and choose not to participate in cyberbullying. I will support people who need help and encourage a safer, kinder internet.</p>
+      <button class="btn" id="pledgeBtn" style="background:var(--blue);color:white;border:0;cursor:pointer">I choose kindness</button>
+      <p id="pledgeMessage" aria-live="polite" style="font-weight:750;color:var(--teal);margin-bottom:0"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div><a class="brand" href="#home" style="color:white"><span class="brand-mark">♡</span> CyberKindness</a><p>Think Before You Type, Choose Kindness Every Time.</p><p>Promoting kindness, respect, and responsible communication online.</p></div>
+    <a class="top-link" href="#home">Back to top ↑</a>
+  </div>
+</footer>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+  document.getElementById('pledgeBtn').addEventListener('click', () => {
+    document.getElementById('pledgeMessage').textContent = 'Thank you for choosing kindness! 💙';
+    document.getElementById('pledgeBtn').textContent = 'Commitment made ✓';
+  });
+</script>
+</body>
+</html>
